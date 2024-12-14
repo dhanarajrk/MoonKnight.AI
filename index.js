@@ -39,47 +39,61 @@ app.post('/', async(req,res) => {
             'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
           }
         });
+        
         console.log('\n API Response:', response.data);  //Reponse data from API
+        
+        //if api server reponse an error. then stop the program 
+        if(response.data.error){
+          const errorMessage = JSON.parse(response.data.error.metadata.raw);
+          throw new Error(errorMessage.error.message)
+        }
+
         const messageContent = response.data.choices[0].message.content;
         //console.log(messageContent);
         
-        //response the generated result to Frontend      
+        //response the generated result to Frontend if no error  
         res.json({ 
         message: messageContent,
         })
     
       } catch (error) {
         console.error('Error:', error);
-        throw error;  
+        res.status(500).json({
+          error: error.message,
+        });
       }
 })
 
 //get usable models from openrouter
 app.get('/models', async (req, res) => {
+  
+  const manualChoosenModel = [  //I manually Choosen these models to include in the list along with other free models. These choosen models are working like free even though its not . I don't know if it is temporary!
+    'google/gemini-flash-1.5',
+    'google/gemini-flash-1.5-8b',
+    'openai/gpt-4o-mini',
+    'microsoft/wizardlm-2-8x22b',
+  ];
+
   try {
     const response = await axios.get('https://openrouter.ai/api/v1/models');
-    
+      
     // Log the entire response to check its structure
     //console.log('Full response:', response.data);
     
-    // Check if response.data exists and contains the models array
-    if (response.data && response.data.data && Array.isArray(response.data.data)) {
-      // Filter models where pricing.prompt is "0"
-      const freeModels = response.data.data.filter(model => model.pricing && model.pricing.prompt === "0");
+    //filtering to get free models and also choosen models
+    const freeModels = response.data.data.filter(
+      model => (model.pricing && model.pricing.prompt === "0") || manualChoosenModel.includes(model.id)
+    );
+   
+    // Return the filtered models
+    res.json({ models: freeModels }); 
 
-      // Return the filtered models
-      res.json({ models: freeModels });
-      
-    } else {
-      
-      throw new Error('Invalid response structure');
-    }
-  } catch (error) {
+   } catch (error) {
     console.error('Error fetching models:', error);
     res.status(500).json({ error: 'Failed to fetch models' });
-  }
-});
+   }
 
+});
 
 
 app.listen(port, () =>{

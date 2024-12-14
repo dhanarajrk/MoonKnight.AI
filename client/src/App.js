@@ -38,7 +38,7 @@ function App() {
 
   const handleSubmit = async(e) =>{
     e.preventDefault();
-    console.log(currentModel);
+    //console.log(currentModel);
 
     //Since setChatLog is asynchronous and does not immediately update the state, I use a temporary variable to hold the updated chatLog before making the API call
     const updatedChatLog = [...chatLog, { user: "Me", message: input }]; //Create a new chat log including the current input
@@ -56,9 +56,15 @@ function App() {
       })
     });
     const data = await response.json();
+    if (data.error) {
+      console.error("Error from API:", data.error);
+      alert(`Error: ${data.error} \nTry another model!`); // Display the error as an alert and terminate so that setChatLog won't update after this.
+      return;
+    }
+
     setChatLog([...updatedChatLog, { user: "gpt", message: `${data.message}`}]) //store response from gpt in updatedChatLog and then store in chatLog
     //console.log(data.message);
-    
+     
   }
 
   return (
