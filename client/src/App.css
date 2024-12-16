@@ -126,6 +126,8 @@
 .message{
   padding-left: 40px;
   padding-right: 40px;
+  line-height: 1.7; /* Adjusts spacing between lines */
+  margin-bottom: 10px; /* Adds space between paragraphs or messages */
 }
 
 
@@ -153,7 +155,44 @@
   background-color: rgba(255, 255, 255, 0.1); 
 }
 
+.chat-image-container {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: rgb(50, 32, 42);
+  border-radius: 15px;
+}
 
+.chat-image-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.chat-input-holder p {
+  color: #555;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.uploaded-image-preview {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploaded-image-preview img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 
 
 .App-header {

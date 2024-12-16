@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import {encode} from 'gpt-tokenizer';
+import ImageKit from 'imagekit';
 
 dotenv.config();
 
@@ -12,17 +13,28 @@ const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const app=express();
 
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors({
+  origin: process.env.CLIENT_URL
+}))
 
 const port = 3080;
 
+//ImageKitio
+const imagekit = new ImageKit({
+  urlEndpoint: process.env.IMAGE_KIT_ENDPOINT,
+  publicKey: process.env.IMAGE_KIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGE_KIT_PRIVATE_KEY,
+});
+
+
 app.post('/', async(req,res) => {
-    const { message, currentModel } = req.body; //all messages and the selected AI model from frontend
-    //console.log("Entered Message:", message);
+    const { message, imgUrl, currentModel } = req.body; //all messages and the selected AI model from frontend
+    console.log("Entered Message:", message);
+    console.log("Image URL:", imgUrl);
     console.log("Current Model:", currentModel.name);
-    console.log("Input Tokens:", encode(message).length) //to calculate Input Tokens (not necessarily required)
-    console.log("Max Tokens:", currentModel.top_provider.max_completion_tokens);   //max_tokens will control the limited of generated message. eg. max_tokens: 8192, the output token will not exceed 8192 token length 
-    console.log("Max_Context_Length:", currentModel.top_provider.context_length ) //Context length is like a "workspace" where input+output must be within the max context length
+    //console.log("Input Tokens:", encode(message).length) //to calculate Input Tokens (not necessarily required)
+    //console.log("Max Tokens:", currentModel.top_provider.max_completion_tokens);   //max_tokens will control the limited of generated message. eg. max_tokens: 8192, the output token will not exceed 8192 token length 
+    //console.log("Max_Context_Length:", currentModel.top_provider.context_length ) //Context length is like a "workspace" where input+output must be within the max context length
     
     try {
         const response = await axios.post('https://openrouter.ai/api/v1/chat/completions', {
@@ -30,7 +42,10 @@ app.post('/', async(req,res) => {
           messages: [
             {
               role: 'user',
-              content: `${message}`,
+              content: [
+                { "type": "text", "text": `${message}` },  // Add text message
+                ...(imgUrl ? [{ "type": "image_url", "image_url": { "url": `${imgUrl}` } }] : []) // and Add image URL if available
+              ]
             }
           ],
           max_tokens: currentModel.top_provider.max_completion_tokens, //set the max_tokens provided by model object data
@@ -64,7 +79,8 @@ app.post('/', async(req,res) => {
       }
 })
 
-//get usable models from openrouter
+
+//endpoint to get usable models from openrouter
 app.get('/models', async (req, res) => {
   
   const manualChoosenModel = [  //I manually Choosen these models to include in the list along with other free models. These choosen models are working like free even though its not . I don't know if it is temporary!
@@ -94,6 +110,12 @@ app.get('/models', async (req, res) => {
    }
 
 });
+
+//endpoint for upload image
+app.get("/api/upload", (req, res) => {
+  const result = imagekit.getAuthenticationParameters();
+  res.send(result);
+})
 
 
 app.listen(port, () =>{
