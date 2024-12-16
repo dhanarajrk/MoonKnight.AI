@@ -29,8 +29,8 @@ const imagekit = new ImageKit({
 
 app.post('/', async(req,res) => {
     const { message, imgUrl, currentModel } = req.body; //all messages and the selected AI model from frontend
-    console.log("Entered Message:", message);
-    console.log("Image URL:", imgUrl);
+    //console.log("Entered Message:", message);
+    //console.log("Image URL:", imgUrl);
     console.log("Current Model:", currentModel.name);
     //console.log("Input Tokens:", encode(message).length) //to calculate Input Tokens (not necessarily required)
     //console.log("Max Tokens:", currentModel.top_provider.max_completion_tokens);   //max_tokens will control the limited of generated message. eg. max_tokens: 8192, the output token will not exceed 8192 token length 

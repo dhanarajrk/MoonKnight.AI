@@ -139,6 +139,9 @@ function App() {
 
             <Upload setImg={setImg}/>
             <input rows='1' className='chat-input-textarea' placeholder='Type your message here' value={input} onChange={(e) => setInput(e.target.value)}></input>
+            <button type="submit" className="send-button">
+              <img src="send.png" alt="Send" />
+            </button>
           </form>
         </div>
       </section>

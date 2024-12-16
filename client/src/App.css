@@ -194,6 +194,37 @@
   border-radius: 5px;
 }
 
+.send-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 4px;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.send-button img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.send-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.send-button:active {
+  transform: scale(0.95);
+}
+
+
+
 
 .App-header {
   background-color: #282c34;
