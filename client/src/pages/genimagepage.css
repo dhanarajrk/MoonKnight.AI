@@ -1,0 +1,182 @@
+/* Main Container */
+.gen-image-page {
+  display: flex;
+  background-color: rgb(36, 12, 30); /* Matches the 1st design background */
+  color: white;
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.gen-image-page .sidemenu {
+  width: 260px;
+  padding: 20px;
+  background-color: #1b0214; /* Sidebar color from 1st design */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gen-image-page .clear-images-button {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.155);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Hover-like color from 1st design */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gen-image-page .clear-images-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter hover effect */
+}
+
+.gen-image-page .models h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: white; /* Ensures consistent white text */
+}
+
+.gen-image-page .models select {
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.155);
+  background-color: #1b0214; /* Matches sidebar color */
+  color: white;
+  font-size: 1em;
+  outline: none;
+  cursor: pointer;
+}
+
+.gen-image-page .models select option {
+  background-color: #1b0214; /* Dropdown options background */
+  color: white;
+}
+
+.gen-image-page .text-link {
+  color: #61dafb; /* Matches App-link color */
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: auto;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.155);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.gen-image-page .text-link:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* Content Area */
+.gen-image-page .content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  gap: 20px; /* Add space between image and form */
+}
+
+.form-container{
+  margin-top: auto;
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+.gen-image-page .text-input {
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(50, 32, 42); /* Matches input background from 1st design */
+  color: white;
+  font-size: 1em;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+  width: 75%;
+}
+
+.gen-image-page .generate-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(221, 26, 107, 0.621); /* Button matches hover color */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 25%;
+}
+
+.gen-image-page .generate-button:hover {
+  background-color: rgba(219, 31, 31, 0.2);
+  transform: scale(1.05); /* Subtle hover scale */
+}
+
+.gen-image-page .generate-button:active {
+  transform: scale(0.95); /* Active press effect */
+}
+
+.parameters{
+  text-align: center;
+  margin-top: 20%;
+  border: 1px solid rgba(98, 85, 85, 0.638);
+  border-radius: 10px;
+}
+
+.parameter-item{
+  text-align: center;
+  padding: 5px;
+}
+
+.parameter-item input{
+  background-color: rgba(116, 77, 88, 0.642);
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+  color: white;
+  padding: 2px;
+}
+
+/* Center the image container and ensure spacing */
+.gen-image-page .generated-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%; /* Prevent overflow */
+  margin-top: auto;
+}
+
+/* Make the image responsive */
+.gen-image-page .generated-image-container img {
+  max-width: 80%; /* Responsive width */
+  max-height: 600px; /* Optional: Control height */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .gen-image-page .generated-image-container img {
+    max-width: 100%; /* Full width on smaller screens */
+    max-height: 300px; /* Reduce max height for smaller devices */
+  }
+
+  /* Adjust form container */
+  .form-container {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gen-image-page .text-input {
+  flex: 1; /* Input takes up available space */
+}
+
+.gen-image-page .generate-button {
+  width: auto; /* Adjust button width */
+}
+}
+

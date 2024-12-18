@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import Upload from './components/upload/Upload';
 import { IKImage } from 'imagekitio-react';
 import Markdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -112,6 +113,7 @@ function App() {
             ))}
           </select>
         </div>
+        <Link to="/genimage" className="text-link">Others: Image Generation</Link>
       </aside>
       
       <section className='chatbox'>

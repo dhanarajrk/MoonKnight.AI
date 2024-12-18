@@ -8,6 +8,10 @@
 }
 
 .sidemenu {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Push items to the top and bottom */
+  height: 100vh; /* Full height of the viewport */
   width: 260px;
   padding: 10px;
   background-color: #1b0214;
@@ -132,7 +136,7 @@
 
 
 .models {
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 .models select {
@@ -153,6 +157,26 @@
 
 .models select:hover {
   background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.text-link {
+  margin-top: auto; /* Push the link to the bottom */
+  color: #61dafb;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.155);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .chat-image-container {
@@ -222,9 +246,6 @@
 .send-button:active {
   transform: scale(0.95);
 }
-
-
-
 
 .App-header {
   background-color: #282c34;
