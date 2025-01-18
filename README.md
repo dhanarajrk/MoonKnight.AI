@@ -1,8 +1,9 @@
+Here's the updated README with more professional wording:
 ---
 
-# MoonKnight.AI 🤖💬
+# Real-time AI Chat App 🤖💬
 
-This is a real-time AI chat application that has various options to select different AI models to generate text and images based on user input. It allows users to chat with different models and upload images, with the added functionality of generating images based on prompts.
+This is a real-time AI chat application that offers various options to select different AI models to generate text and images based on user input. It allows users to interact with different models and upload images, with the added functionality of generating images based on prompts. The models are integrated through the **OpenRouter AI API** and **Pollination AI API**.
 
 ## Features: 🚀
 - **Chat with AI Models**: Select from available AI models to generate responses.
@@ -12,7 +13,7 @@ This is a real-time AI chat application that has various options to select diffe
 
 ## Technologies Used: 🛠️
 - **Frontend**: React, ImageKit, React Router
-- **Backend**: Express, OpenRouter API, ImageKit
+- **Backend**: Express, OpenRouter API, Pollination AI API, ImageKit
 - **Environment Variables**: dotenv for managing sensitive information
 
 ---
@@ -36,6 +37,7 @@ cd MoonKnight.AI
 
 ```env
 OPENROUTER_API_KEY=your_openrouter_api_key
+POLLINATION_API_KEY=your_pollination_api_key
 IMAGE_KIT_ENDPOINT=your_imagekit_endpoint
 IMAGE_KIT_PUBLIC_KEY=your_imagekit_public_key
 IMAGE_KIT_PRIVATE_KEY=your_imagekit_private_key
