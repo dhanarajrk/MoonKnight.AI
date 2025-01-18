@@ -1,23 +1,25 @@
-# Real-time AI Chat App
+---
+
+# MoonKnight.AI 🤖💬
 
 This is a real-time AI chat application that has various options to select different AI models to generate text and images based on user input. It allows users to chat with different models and upload images, with the added functionality of generating images based on prompts.
 
-## Features:
+## Features: 🚀
 - **Chat with AI Models**: Select from available AI models to generate responses.
 - **Image Uploads**: Upload images that can be included in your chat.
 - **Image Generation**: Generate images based on prompts.
 - **Markdown Rendering**: Display messages with Markdown formatting.
 
-## Technologies Used:
+## Technologies Used: 🛠️
 - **Frontend**: React, ImageKit, React Router
 - **Backend**: Express, OpenRouter API, ImageKit
 - **Environment Variables**: dotenv for managing sensitive information
 
 ---
 
-## Setup
+## Setup 📝
 
-### Prerequisites:
+### Prerequisites: ⚙️
 - Node.js and npm installed on your system.
 - A `.env` file with the necessary API keys (see below).
 
@@ -28,7 +30,7 @@ git clone https://github.com/dhanarajrk/MoonKnight.AI.git
 cd MoonKnight.AI
 ```
 
-### 2. Setup Server (Backend)
+### 2. Setup Server (Backend) 🔧
 
 1. The backend is included in the root folder. Ensure you have the following `.env` file in the root folder with the necessary environment variables:
 
@@ -52,7 +54,7 @@ The server will run on `http://localhost:3080`.
 
 ---
 
-### 3. Setup Client (Frontend)
+### 3. Setup Client (Frontend) 🌐
 
 1. Navigate to the `client` folder:
 
@@ -83,14 +85,14 @@ The frontend will run on `http://localhost:3000`.
 
 ---
 
-## Screenshots
+## Screenshots 📸
 
 Here are two screenshots showcasing the features of the application:
 
-### 1. **Text Generation Feature**
+### 1. **Text Generation Feature** 📝
 ![Text Generation Screenshot](./screenshots/screenshot1.jpg)
 
-### 2. **Image Generation Feature**
+### 2. **Image Generation Feature** 🖼️
 ![Image Generation Screenshot](./screenshots/screenshot2.jpg)
 
 ---
