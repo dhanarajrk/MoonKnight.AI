@@ -3,7 +3,7 @@ Here's the updated README with more professional wording:
 
 # Real-time AI Chat App 🤖💬
 
-This is a real-time AI chat application that offers various options to select different AI models to generate text and images based on user input. It allows users to interact with different models and upload images, with the added functionality of generating images based on prompts. These models will be updated with APIs to the latest models available until today. (eg. **DeepSeek, Gemini 2.0, GPT-4o mini, and many more...**)
+This is a real-time AI chat application that offers various options to select different AI models to generate text and images based on user input. It allows users to interact with different models and upload images, with the added functionality of generating images based on prompts. These models will be updated with APIs to the latest models available until today. (eg. **DeepSeek, Google Gemini 2.0, GPT-4o mini, and many more...**)
 
 ## Features: 🚀
 - **Chat with AI Models**: Select from available AI models to generate responses.
