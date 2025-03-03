@@ -89,13 +89,13 @@ The frontend will run on `http://localhost:3000`.
 
 Here are two screenshots showcasing the features of the application:
 
-### **Model Selection Feature** 📝
+### **Model Selection Feature** 
 ![Model Selection Screenshot](./rtca-screenshots/models.png)
 
-### 2. **Text Generation Feature** 🖼️
+### 2. **Text Generation Feature** 
 ![Text Generation Screenshot](./rtca-screenshots/text-gen.PNG)
 
-### 2. **Image Generation Feature** 🖼️
+### 2. **Image Generation Feature** 
 ![Image Generation Screenshot](./rtca-screenshots/image-gen.PNG)
 
 ---
