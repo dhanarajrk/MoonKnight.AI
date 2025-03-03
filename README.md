@@ -1,5 +1,3 @@
-Here's the updated README with more professional wording:
----
 
 # Real-time AI Chat App 🤖💬
 
