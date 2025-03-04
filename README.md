@@ -1,5 +1,7 @@
 
-# MoonNight AI - Real-time AI Chat App 🤖💬
+# MoonNight AI
+
+  -A Real-time AI Chat App 🤖💬
 
 This is a real-time AI chat application that offers various options to select different AI models to generate text and images based on user input. It allows users to interact with different models and upload images, with the added functionality of generating images based on prompts. These models will be updated with APIs to the latest models available until today. (eg. **DeepSeek, Google Gemini 2.0, GPT-4o mini, and many more...**)
 
